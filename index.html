@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pengingat Jadwal Kuliah UNIKAMA</title>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1f2937">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="title">
+      <h1>Pengingat Jadwal Kuliah UNIKAMA</h1>
+      <p class="subtitle">Jadwal terpusat • Notifikasi otomatis • UI sederhana</p>
+    </div>
+    <div class="actions">
+      <button id="btnInstall" class="btn" hidden>Install</button>
+      <button id="btnNotify" class="btn secondary">Aktifkan Notifikasi</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Tambah Jadwal</h2>
+
+      <form id="scheduleForm" class="grid">
+        <label>
+          Mata Kuliah
+          <input id="course" required placeholder="Contoh: Pemrograman Mobile" />
+        </label>
+
+        <label>
+          Dosen (opsional)
+          <input id="lecturer" placeholder="Contoh: Bapak/Ibu ..." />
+        </label>
+
+        <label>
+          Ruang
+          <input id="room" required placeholder="Contoh: Lab 2 / R. 301" />
+        </label>
+
+        <label>
+          Hari
+          <select id="day" required>
+            <option value="1">Senin</option>
+            <option value="2">Selasa</option>
+            <option value="3">Rabu</option>
+            <option value="4">Kamis</option>
+            <option value="5">Jumat</option>
+            <option value="6">Sabtu</option>
+            <option value="0">Minggu</option>
+          </select>
+        </label>
+
+        <label>
+          Jam Mulai
+          <input id="startTime" type="time" required />
+        </label>
+
+        <label>
+          Jam Selesai
+          <input id="endTime" type="time" required />
+        </label>
+
+        <label>
+          Pengingat (menit sebelum)
+          <select id="remindMinutes" required>
+            <option value="5">5 menit</option>
+            <option value="10">10 menit</option>
+            <option value="15" selected>15 menit</option>
+            <option value="30">30 menit</option>
+            <option value="45">45 menit</option>
+            <option value="60">60 menit</option>
+          </select>
+        </label>
+
+        <label>
+          Semester (opsional)
+          <input id="semester" placeholder="Contoh: 4" inputmode="numeric" />
+        </label>
+
+        <div class="row">
+          <button class="btn primary" type="submit">Simpan Jadwal</button>
+          <button class="btn danger" type="button" id="btnClear">Hapus Semua</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="row between">
+        <h2>Jadwal</h2>
+        <div class="row">
+          <button class="btn" id="tabDaily">Harian</button>
+          <button class="btn" id="tabWeekly">Mingguan</button>
+        </div>
+      </div>
+
+      <div id="info" class="info"></div>
+      <div id="scheduleList" class="list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Versi MVP PWA — sesuai Design Thinking & Lean Startup (UNIKAMA)</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
